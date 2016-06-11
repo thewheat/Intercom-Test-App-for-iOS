@@ -18,3 +18,21 @@
 - Ensure you have [CocoaPods](https://cocoapods.org/) installed
 - In a terminal go into the root folder where the `Podfile` is located and run `pod install`
 - open "Intercom Test App.xcworkspace"
+
+
+## Screenshots
+**Login Page**
+
+![login](/screenshots/login.png)
+
+**Attributes & Events**
+
+![attributes-events](/screenshots/attributes-events.png)
+
+**Misc**
+
+![misc](/screenshots/misc.png)
+
+**Settings**
+
+![settings](/screenshots/settings.png)
