@@ -18,15 +18,18 @@ void intercomCheckSecureMode(NSString* data);
 @property (nonatomic, weak) IBOutlet UITextField *email;
 @property (nonatomic, weak) IBOutlet UITextField *name;
 
+@property (nonatomic, weak) IBOutlet UITextField *activeField;
+@property (nonatomic, weak) IBOutlet UINavigationBar *navBar;
 
 
 @property (nonatomic, weak) IBOutlet UITextField *custom_attribute_name;
 @property (nonatomic, weak) IBOutlet UITextField *custom_attribute_value;
+@property (nonatomic, weak) IBOutlet UISwitch *custom_attribute;
 
 @property (nonatomic, weak) IBOutlet UITextField *event_name;
 @property (nonatomic, weak) IBOutlet UITextField *event_metadata_name;
 @property (nonatomic, weak) IBOutlet UITextField *event_metadata_value;
-
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, weak) IBOutlet UITextField *app_id;
 @property (nonatomic, weak) IBOutlet UITextField *sdk_api_key;
@@ -47,6 +50,17 @@ void intercomCheckSecureMode(NSString* data);
     NSLog(@"viewDidLoad");
     [self readSettings];
     [self populateSettings];
+
+    self.scrollView = nil;
+    for(int i = 0; i < self.view.subviews.count; i++){
+        if([self.view.subviews[i] isKindOfClass:[UIScrollView class]]){
+            self.scrollView = self.view.subviews[i];
+        }
+        else if([self.view.subviews[i] isKindOfClass:[UINavigationBar class]]){
+            self.navBar = self.view.subviews[i];
+        }
+    }
+    [self registerForKeyboardNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -155,17 +169,28 @@ void intercomCheckSecureMode(NSString* data);
     }else{
         [Intercom registerUserWithUserId:self.userid.text];
     }
+    [self updateNameIfNecessary];
 }
 
 
+- (void)updateNameIfNecessary {
+    if(self.name.text.length > 0)
+        [Intercom updateUserWithAttributes:@{@"name" : self.name.text}];
+}
 
 - (IBAction)loginUnidentified:(id)sender {
     NSLog(@"Sign in as unregistered user");
     [Intercom registerUnidentifiedUser];
+    [self updateNameIfNecessary];
 }
 - (IBAction)updateCustomAttributePressed:(id)sender {
     NSLog(@"Update Custom Attribute. Name: %@ / Value: %@", self.custom_attribute_name.text, self.custom_attribute_value.text);
-    [Intercom updateUserWithAttributes:@{@"custom_attributes": @{self.custom_attribute_name.text : self.custom_attribute_value.text}}];
+    if(self.custom_attribute.isOn){
+        [Intercom updateUserWithAttributes:@{@"custom_attributes": @{self.custom_attribute_name.text : self.custom_attribute_value.text}}];
+    }
+    else{
+        [Intercom updateUserWithAttributes:@{self.custom_attribute_name.text : self.custom_attribute_value.text}];
+    }
 }
 - (IBAction)submitEventPressed:(id)sender {
     NSLog(@"Submit Event. Name: %@ / Meta Data Name: %@ / Meta Data Value: %@", self.event_name.text, self.event_metadata_name.text, self.event_metadata_value.text);
@@ -250,5 +275,69 @@ NSString *hexadecimalString(NSData *data){
 }
 
 
+
+// https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSLog(@"show keyboard");
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your app might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin) ) {
+        [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
+    }
+
+    // TODO: a better way to do this. Couldn't find a way to dismiss keyboard in order to change navigate away
+    [self showBackIcon];
+}
+
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    NSLog(@"hide keyboard");
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+}
+
+-(void) dismissKeyboardAndHideBackIcon{
+    [self endEditing];
+    [self hideBackIcon];
+}
+-(void) endEditing{
+    [self.view endEditing:YES];
+}
+-(void) showBackIcon{
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [backButton setImage:[UIImage imageNamed:@"Back-100.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(dismissKeyboardAndHideBackIcon) forControlEvents:UIControlEventTouchUpInside];
+    if(self.navBar.items.count > 0) self.navBar.items[0].leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+-(void) hideBackIcon{
+    if(self.navBar.items.count > 0){
+        self.navBar.items[0].leftBarButtonItem = nil;
+    }
+}
 
 @end
