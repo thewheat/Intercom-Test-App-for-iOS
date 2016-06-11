@@ -55,8 +55,8 @@ void intercomCheckSecureMode(NSString* data);
 }
 
 -(void) populateSettings{
-    self.app_id.text = self.settings_sdk_api_key;
-    self.sdk_api_key.text = self.settings_app_id;
+    self.app_id.text = self.settings_app_id;
+    self.sdk_api_key.text = self.settings_sdk_api_key;
     self.secret_key.text = self.settings_secret_key;
 }
 
@@ -85,6 +85,10 @@ void intercomCheckSecureMode(NSString* data);
     
     if ([objects count] == 0) {
         NSLog(@"No matches");
+        // hardcode values for testing
+        self.settings_sdk_api_key = @"";
+        self.settings_app_id = @"";
+        self.settings_secret_key = @"";
     } else {
         matches = objects[0];
         NSLog(@"Loading saved settings for %@", [matches valueForKey:@"app_id"]);
