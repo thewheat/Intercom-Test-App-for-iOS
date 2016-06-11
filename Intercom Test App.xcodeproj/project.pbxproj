@@ -14,6 +14,7 @@
 		08C40D771D05A9B300C01E60 /* Intercom_Test_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08C40D751D05A9B300C01E60 /* Intercom_Test_App.xcdatamodeld */; };
 		08C40D791D05A9B300C01E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C40D781D05A9B300C01E60 /* Assets.xcassets */; };
 		08C40D7C1D05A9B300C01E60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08C40D7A1D05A9B300C01E60 /* LaunchScreen.storyboard */; };
+		753A7167D0654EFFBAF825C3 /* libPods-Intercom Test App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F33644682009E50A9589F05 /* libPods-Intercom Test App.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		08C40D781D05A9B300C01E60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08C40D7B1D05A9B300C01E60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08C40D7D1D05A9B300C01E60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		988F06EE0A7C74D65005ECF8 /* Pods-Intercom Test App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intercom Test App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Intercom Test App/Pods-Intercom Test App.release.xcconfig"; sourceTree = "<group>"; };
+		9F33644682009E50A9589F05 /* libPods-Intercom Test App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Intercom Test App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD01610F5EB9771B51C7B938 /* Pods-Intercom Test App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intercom Test App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Intercom Test App/Pods-Intercom Test App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753A7167D0654EFFBAF825C3 /* libPods-Intercom Test App.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				08C40D681D05A9B200C01E60 /* Intercom Test App */,
 				08C40D671D05A9B200C01E60 /* Products */,
+				2594EA35EA9510DE972FB971 /* Pods */,
+				4EE65789F835932C488EFC83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +89,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2594EA35EA9510DE972FB971 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD01610F5EB9771B51C7B938 /* Pods-Intercom Test App.debug.xcconfig */,
+				988F06EE0A7C74D65005ECF8 /* Pods-Intercom Test App.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4EE65789F835932C488EFC83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F33644682009E50A9589F05 /* libPods-Intercom Test App.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,9 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08C40D801D05A9B300C01E60 /* Build configuration list for PBXNativeTarget "Intercom Test App" */;
 			buildPhases = (
+				34A22677C3C7F721FC9E4ABC /* [CP] Check Pods Manifest.lock */,
 				08C40D621D05A9B200C01E60 /* Sources */,
 				08C40D631D05A9B200C01E60 /* Frameworks */,
 				08C40D641D05A9B200C01E60 /* Resources */,
+				555942284824183A1B7F7338 /* [CP] Embed Pods Frameworks */,
+				B0B1CCAE3E4D2A72ADB0221B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +173,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		34A22677C3C7F721FC9E4ABC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		555942284824183A1B7F7338 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Intercom Test App/Pods-Intercom Test App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0B1CCAE3E4D2A72ADB0221B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Intercom Test App/Pods-Intercom Test App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08C40D621D05A9B200C01E60 /* Sources */ = {
@@ -265,6 +340,7 @@
 		};
 		08C40D811D05A9B300C01E60 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD01610F5EB9771B51C7B938 /* Pods-Intercom Test App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Intercom Test App/Info.plist";
@@ -276,6 +352,7 @@
 		};
 		08C40D821D05A9B300C01E60 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 988F06EE0A7C74D65005ECF8 /* Pods-Intercom Test App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Intercom Test App/Info.plist";
@@ -304,6 +381,7 @@
 				08C40D821D05A9B300C01E60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

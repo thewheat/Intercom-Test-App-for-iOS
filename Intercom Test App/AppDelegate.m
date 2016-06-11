@@ -1,14 +1,11 @@
-//
-//  AppDelegate.m
-//  Intercom Test App
-//
-//  Created by Sheng Hwee (Timothy) Lim on 6/06/2016.
-//
-//
-
 #import "AppDelegate.h"
+@import Intercom;
+
 
 @interface AppDelegate ()
+    @property (nonatomic, assign) NSString *settings_app_id;
+    @property (nonatomic, assign) NSString *settings_sdk_api_key;
+    @property (nonatomic, assign) NSString *settings_secret_key;
 
 @end
 
@@ -17,6 +14,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [Intercom enableLogging];
+    [self readSettings];
+    
+    if (self.settings_sdk_api_key != nil && self.settings_app_id != nil){
+        NSLog(@"Data exits %@ %@", self.settings_app_id, self.settings_sdk_api_key);
+        [Intercom setApiKey:self.settings_sdk_api_key forAppId:self.settings_app_id];
+    }else{
+        NSLog(@"No data");
+    }
+    
     return YES;
 }
 
@@ -121,6 +128,29 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
+    }
+}
+// TODO: refactor settings because I do not know how to properly iOS yet
+-(void)readSettings{
+    AppDelegate *appDelegate =[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Settings" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc];
+    
+    NSManagedObject *matches = nil;
+    
+    NSError *error;
+    NSArray *objects = [context executeFetchRequest:request
+                                              error:&error];
+    
+    if ([objects count] == 0) {
+        NSLog(@"No matches");
+    } else {
+        matches = objects[0];
+        self.settings_app_id = [matches valueForKey:@"app_id"];
+        self.settings_sdk_api_key = [matches valueForKey:@"sdk_api_key"];
+        self.settings_secret_key = [matches valueForKey:@"secret_key"];
     }
 }
 
