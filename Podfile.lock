@@ -1,11 +1,11 @@
 PODS:
-  - Intercom (2.3.19)
+  - Intercom (3.0.10)
 
 DEPENDENCIES:
   - Intercom
 
 SPEC CHECKSUMS:
-  Intercom: de20d3f2eeb7798aac66b26a7a7b92979211e05c
+  Intercom: 51d8e09f7d1f863170a494460f74c24a88366f29
 
 PODFILE CHECKSUM: c329371883778d846def3680e211ee681b1c3fcc
 

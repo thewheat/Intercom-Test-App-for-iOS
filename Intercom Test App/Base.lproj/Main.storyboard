@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ERr-Cc-d55">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ERr-Cc-d55">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -369,8 +369,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ed-0L-RgL" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visibility Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-Ng-Q8M">
+                                                <rect key="frame" x="8" y="8" width="169" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide / Show Intercom elements from your app. This will only work if you have a chat head notification on screen" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rG-Xz-fMf">
+                                                <rect key="frame" x="8" y="37" width="304" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="88c-oc-nkB">
-                                                <rect key="frame" x="0.0" y="119" width="320" height="30"/>
+                                                <rect key="frame" x="0.0" y="96" width="320" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-Bl-UR8">
                                                         <rect key="frame" x="0.0" y="0.0" width="146" height="30"/>
@@ -388,137 +400,148 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visibility Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-Ng-Q8M">
-                                                <rect key="frame" x="8" y="8" width="169" height="24"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide / Show the launcher icon in the bottom right of the screen" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xot-Mc-cDP">
+                                                <rect key="frame" x="8" y="162" width="304" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Head Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iov-4s-U4k">
-                                                <rect key="frame" x="8" y="169" width="185" height="24"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9QH-Bv-PJw">
-                                                <rect key="frame" x="0.0" y="269" width="320" height="68"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="VIp-gw-TbR" userLabel="Stack View T">
+                                                <rect key="frame" x="0.0" y="206" width="320" height="30"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="VIp-gw-TbR" userLabel="Stack View T">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArI-Hf-2Up">
-                                                                <rect key="frame" x="0.0" y="0.0" width="148" height="30"/>
-                                                                <state key="normal" title="Top Left"/>
-                                                                <connections>
-                                                                    <action selector="positionTopLeftPressed:" destination="jzM-xI-d3T" eventType="touchUpInside" id="lJ4-1o-1Yz"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vsw-IX-xer">
-                                                                <rect key="frame" x="148" y="0.0" width="172" height="30"/>
-                                                                <state key="normal" title="Top Right"/>
-                                                                <connections>
-                                                                    <action selector="positionTopRightPressed:" destination="jzM-xI-d3T" eventType="touchUpInside" id="Jj3-qf-n7S"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Nj9-U8-Vqn" userLabel="Stack View B">
-                                                        <rect key="frame" x="0.0" y="38" width="320" height="30"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywh-oY-E8d">
-                                                                <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
-                                                                <state key="normal" title="Bottom Left"/>
-                                                                <connections>
-                                                                    <action selector="positionBottomLeftPressed:" destination="jzM-xI-d3T" eventType="touchUpInside" id="Zkk-hL-5tf"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8o1-2N-m11">
-                                                                <rect key="frame" x="152" y="0.0" width="168" height="30"/>
-                                                                <state key="normal" title="Bottom Right"/>
-                                                                <connections>
-                                                                    <action selector="positionBottomRightPressed:" destination="jzM-xI-d3T" eventType="touchUpInside" id="ig5-V2-OC3"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArI-Hf-2Up">
+                                                        <rect key="frame" x="0.0" y="0.0" width="146" height="30"/>
+                                                        <state key="normal" title="Hide"/>
+                                                        <connections>
+                                                            <action selector="hideLauncher:" destination="jzM-xI-d3T" eventType="touchUpInside" id="WWh-9R-sjP"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vsw-IX-xer">
+                                                        <rect key="frame" x="146" y="0.0" width="174" height="30"/>
+                                                        <state key="normal" title="Show"/>
+                                                        <connections>
+                                                            <action selector="showLauncher:" destination="jzM-xI-d3T" eventType="touchUpInside" id="8Cv-UV-Y6t"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dictate where the chat head notification appears on your screen. Requires an unread message for this to work" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xot-Mc-cDP">
-                                                <rect key="frame" x="8" y="201" width="304" height="54"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesenger Interface" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfr-i7-QvX">
+                                                <rect key="frame" x="10" y="244" width="188" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide / Show Messenger interface" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tI-9q-yKr">
+                                                <rect key="frame" x="8" y="271" width="228" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide / Show Intercom elements from your app. This will only work if you have a chat head notification on screen" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rG-Xz-fMf">
-                                                <rect key="frame" x="8" y="40" width="304" height="61"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="61" id="NMX-4P-lJ4"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nj9-U8-Vqn" userLabel="Stack View B">
+                                                <rect key="frame" x="0.0" y="305" width="320" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ywh-oY-E8d" userLabel="Hide  (after 5 seconds)">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="48"/>
+                                                        <state key="normal">
+                                                            <string key="title">Hide 
+(after 5 seconds)</string>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleLabel.textAlignment">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="titleLabel.numberOfLines ">
+                                                                <integer key="value" value="0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="hideMessenger:" destination="jzM-xI-d3T" eventType="touchUpInside" id="tGi-rr-mc9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8o1-2N-m11">
+                                                        <rect key="frame" x="160" y="0.0" width="160" height="48"/>
+                                                        <state key="normal" title="Show"/>
+                                                        <connections>
+                                                            <action selector="showMesseger:" destination="jzM-xI-d3T" eventType="touchUpInside" id="dnd-xa-Jzx"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rb4-U3-Ned">
-                                                <rect key="frame" x="82" y="362" width="156" height="30"/>
+                                                <rect key="frame" x="83" y="376" width="156" height="30"/>
                                                 <state key="normal" title="Icons from icons8.com"/>
                                                 <connections>
                                                     <action selector="attributionLink:" destination="jzM-xI-d3T" eventType="touchUpInside" id="iVT-qG-eIS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lic-2f-WlD">
-                                                <rect key="frame" x="53" y="400" width="215" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lic-2f-WlD">
+                                                <rect key="frame" x="8" y="395" width="304" height="48"/>
                                                 <state key="normal" title="Icon size generator: Icon Slayer"/>
                                                 <connections>
                                                     <action selector="iconGenerator:" destination="jzM-xI-d3T" eventType="touchUpInside" id="bOu-mf-FOU"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Launcher Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iov-4s-U4k">
+                                                <rect key="frame" x="8" y="134" width="137" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="lic-2f-WlD" firstAttribute="top" secondItem="rb4-U3-Ned" secondAttribute="bottom" constant="8" id="0dK-cB-HSm"/>
+                                            <constraint firstItem="Wfr-i7-QvX" firstAttribute="leading" secondItem="iov-4s-U4k" secondAttribute="leading" constant="2" id="2bS-al-7B9"/>
+                                            <constraint firstItem="Nj9-U8-Vqn" firstAttribute="leading" secondItem="3Ed-0L-RgL" secondAttribute="leading" id="AcZ-eU-Mki"/>
                                             <constraint firstItem="88c-oc-nkB" firstAttribute="centerX" secondItem="3Ed-0L-RgL" secondAttribute="centerX" id="BYO-rv-BlR"/>
-                                            <constraint firstItem="9QH-Bv-PJw" firstAttribute="top" secondItem="xot-Mc-cDP" secondAttribute="bottom" constant="14" id="FWd-N6-gTN"/>
+                                            <constraint firstItem="Wfr-i7-QvX" firstAttribute="top" secondItem="VIp-gw-TbR" secondAttribute="bottom" constant="8" id="Dal-Wj-qET"/>
                                             <constraint firstItem="88c-oc-nkB" firstAttribute="leading" secondItem="3Ed-0L-RgL" secondAttribute="leading" id="JhQ-Ta-KT2"/>
+                                            <constraint firstAttribute="bottom" secondItem="rb4-U3-Ned" secondAttribute="bottom" constant="24" id="L6Z-gu-oDU"/>
                                             <constraint firstItem="xot-Mc-cDP" firstAttribute="trailing" secondItem="3Ed-0L-RgL" secondAttribute="trailing" constant="-8" id="MpZ-1V-afi"/>
-                                            <constraint firstItem="9QH-Bv-PJw" firstAttribute="leading" secondItem="3Ed-0L-RgL" secondAttribute="leading" id="Nf2-ux-fgM"/>
                                             <constraint firstItem="pRL-Ng-Q8M" firstAttribute="leading" secondItem="3Ed-0L-RgL" secondAttribute="leading" constant="8" id="QfO-oe-ond"/>
-                                            <constraint firstItem="rb4-U3-Ned" firstAttribute="centerX" secondItem="3Ed-0L-RgL" secondAttribute="centerX" id="SBZ-Ls-uHH"/>
-                                            <constraint firstItem="9QH-Bv-PJw" firstAttribute="trailing" secondItem="3Ed-0L-RgL" secondAttribute="trailing" id="SeM-C3-HP2"/>
-                                            <constraint firstItem="xot-Mc-cDP" firstAttribute="top" secondItem="iov-4s-U4k" secondAttribute="bottom" constant="8" id="Xm1-34-VdK"/>
+                                            <constraint firstItem="3rG-Xz-fMf" firstAttribute="top" secondItem="pRL-Ng-Q8M" secondAttribute="bottom" constant="5" id="Qi4-za-HgK"/>
+                                            <constraint firstItem="rb4-U3-Ned" firstAttribute="centerX" secondItem="3Ed-0L-RgL" secondAttribute="centerX" constant="1" id="SBZ-Ls-uHH"/>
+                                            <constraint firstItem="rb4-U3-Ned" firstAttribute="top" secondItem="Nj9-U8-Vqn" secondAttribute="bottom" constant="23" id="X7h-tW-FYg"/>
+                                            <constraint firstItem="xot-Mc-cDP" firstAttribute="top" secondItem="iov-4s-U4k" secondAttribute="bottom" constant="4" id="Xm1-34-VdK"/>
                                             <constraint firstAttribute="height" constant="430" id="Z3c-ET-Uv7"/>
-                                            <constraint firstItem="88c-oc-nkB" firstAttribute="top" secondItem="3rG-Xz-fMf" secondAttribute="bottom" constant="18" id="a51-Db-A9Z"/>
+                                            <constraint firstItem="VIp-gw-TbR" firstAttribute="width" secondItem="3Ed-0L-RgL" secondAttribute="width" id="ZOT-PR-gbG"/>
+                                            <constraint firstItem="88c-oc-nkB" firstAttribute="top" secondItem="3rG-Xz-fMf" secondAttribute="bottom" constant="5" id="a51-Db-A9Z"/>
+                                            <constraint firstItem="0tI-9q-yKr" firstAttribute="top" secondItem="Wfr-i7-QvX" secondAttribute="bottom" constant="3" id="cK0-TD-Pxj"/>
+                                            <constraint firstItem="rb4-U3-Ned" firstAttribute="centerX" secondItem="0tI-9q-yKr" secondAttribute="centerX" constant="39" id="d5N-H1-cft"/>
                                             <constraint firstItem="xot-Mc-cDP" firstAttribute="leading" secondItem="iov-4s-U4k" secondAttribute="leading" id="g48-YZ-UO8"/>
                                             <constraint firstItem="pRL-Ng-Q8M" firstAttribute="top" secondItem="3Ed-0L-RgL" secondAttribute="top" constant="8" id="gAk-lx-3jX"/>
-                                            <constraint firstItem="rb4-U3-Ned" firstAttribute="top" secondItem="9QH-Bv-PJw" secondAttribute="bottom" constant="25" id="iZU-GY-FBl"/>
-                                            <constraint firstItem="lic-2f-WlD" firstAttribute="centerX" secondItem="3Ed-0L-RgL" secondAttribute="centerX" id="m8C-UM-ivM"/>
+                                            <constraint firstItem="VIp-gw-TbR" firstAttribute="centerX" secondItem="3Ed-0L-RgL" secondAttribute="centerX" id="gOp-eH-M2k"/>
+                                            <constraint firstItem="Vsw-IX-xer" firstAttribute="top" secondItem="xot-Mc-cDP" secondAttribute="bottom" constant="8" id="gys-Xu-U88"/>
+                                            <constraint firstItem="iov-4s-U4k" firstAttribute="top" secondItem="88c-oc-nkB" secondAttribute="top" constant="38" id="iSb-b8-XfL"/>
+                                            <constraint firstItem="VIp-gw-TbR" firstAttribute="width" secondItem="3Ed-0L-RgL" secondAttribute="width" id="mRg-uE-xF3"/>
                                             <constraint firstItem="88c-oc-nkB" firstAttribute="trailing" secondItem="3Ed-0L-RgL" secondAttribute="trailing" id="ngn-ym-SUE"/>
+                                            <constraint firstItem="H2W-h2-bBv" firstAttribute="top" secondItem="3rG-Xz-fMf" secondAttribute="bottom" constant="5" id="nz8-T1-daF"/>
                                             <constraint firstItem="xot-Mc-cDP" firstAttribute="leading" secondItem="3Ed-0L-RgL" secondAttribute="leading" constant="8" id="qKJ-Rx-czW"/>
-                                            <constraint firstItem="3rG-Xz-fMf" firstAttribute="top" secondItem="pRL-Ng-Q8M" secondAttribute="bottom" constant="8" symbolic="YES" id="qiq-pI-kn2"/>
                                             <constraint firstItem="3rG-Xz-fMf" firstAttribute="trailing" secondItem="xot-Mc-cDP" secondAttribute="trailing" id="tgW-d8-kuz"/>
                                             <constraint firstItem="88c-oc-nkB" firstAttribute="centerX" secondItem="3Ed-0L-RgL" secondAttribute="centerX" id="v7t-Yh-eao"/>
-                                            <constraint firstItem="iov-4s-U4k" firstAttribute="top" secondItem="NiO-Bl-UR8" secondAttribute="bottom" constant="20" id="xB4-QI-0IX"/>
+                                            <constraint firstItem="Nj9-U8-Vqn" firstAttribute="width" secondItem="3Ed-0L-RgL" secondAttribute="width" id="vFg-xC-9hN"/>
                                             <constraint firstItem="3rG-Xz-fMf" firstAttribute="leading" secondItem="pRL-Ng-Q8M" secondAttribute="leading" id="yJA-L4-qui"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nj9-U8-Vqn" secondAttribute="trailing" id="yp6-9u-yqY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="3Ed-0L-RgL" firstAttribute="trailing" secondItem="MMd-Mm-5Tp" secondAttribute="trailing" id="DLr-Pv-dmc"/>
-                                    <constraint firstItem="3Ed-0L-RgL" firstAttribute="leading" secondItem="MMd-Mm-5Tp" secondAttribute="leading" id="Phu-Zh-Hs7"/>
-                                    <constraint firstItem="3Ed-0L-RgL" firstAttribute="bottom" secondItem="MMd-Mm-5Tp" secondAttribute="bottom" constant="-25" id="Tgk-j3-1NG"/>
-                                    <constraint firstItem="3Ed-0L-RgL" firstAttribute="top" secondItem="MMd-Mm-5Tp" secondAttribute="top" id="gNq-Lp-FhI"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Ed-0L-RgL" secondAttribute="trailing" id="2cb-2i-GJ2"/>
+                                    <constraint firstItem="3Ed-0L-RgL" firstAttribute="leading" secondItem="MMd-Mm-5Tp" secondAttribute="leading" id="E3f-wK-IqL"/>
+                                    <constraint firstItem="3Ed-0L-RgL" firstAttribute="top" secondItem="MMd-Mm-5Tp" secondAttribute="top" id="Muc-vH-FOc"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ed-0L-RgL" secondAttribute="bottom" constant="25" id="wgX-Ag-6eg"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MMd-Mm-5Tp" firstAttribute="bottom" secondItem="NTv-v4-TEz" secondAttribute="top" id="3dU-50-10h"/>
-                            <constraint firstItem="MMd-Mm-5Tp" firstAttribute="leading" secondItem="4IC-aL-BYN" secondAttribute="leading" id="MdP-WU-En7"/>
+                            <constraint firstItem="MMd-Mm-5Tp" firstAttribute="leading" secondItem="Ixo-at-Moy" secondAttribute="leading" id="D9i-27-pxp"/>
+                            <constraint firstItem="MMd-Mm-5Tp" firstAttribute="bottom" secondItem="NTv-v4-TEz" secondAttribute="top" id="G2p-Iy-QvZ"/>
                             <constraint firstItem="Ixo-at-Moy" firstAttribute="leading" secondItem="4IC-aL-BYN" secondAttribute="leading" id="Ofo-S3-6O5"/>
-                            <constraint firstItem="MMd-Mm-5Tp" firstAttribute="trailing" secondItem="4IC-aL-BYN" secondAttribute="trailing" id="XEb-yG-gcB"/>
                             <constraint firstItem="Ixo-at-Moy" firstAttribute="trailing" secondItem="4IC-aL-BYN" secondAttribute="trailing" id="YyS-xY-FWS"/>
                             <constraint firstItem="3Ed-0L-RgL" firstAttribute="width" secondItem="4IC-aL-BYN" secondAttribute="width" id="Zid-Te-Ifo"/>
-                            <constraint firstItem="MMd-Mm-5Tp" firstAttribute="top" secondItem="Ixo-at-Moy" secondAttribute="bottom" id="dNX-18-T5q"/>
                             <constraint firstItem="Ixo-at-Moy" firstAttribute="top" secondItem="ku0-LI-fLr" secondAttribute="bottom" id="fp0-Ve-IIs"/>
+                            <constraint firstItem="MMd-Mm-5Tp" firstAttribute="top" secondItem="Ixo-at-Moy" secondAttribute="bottom" id="ggN-Fr-3Iq"/>
+                            <constraint firstItem="MMd-Mm-5Tp" firstAttribute="trailing" secondItem="Ixo-at-Moy" secondAttribute="trailing" id="rvx-Py-Ijm"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Misc" image="More-100" id="94s-dz-Mtf"/>

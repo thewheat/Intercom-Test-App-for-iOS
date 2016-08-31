@@ -213,23 +213,26 @@ void intercomCheckSecureMode(NSString* data);
 
 
 - (IBAction)interfaceHidePressed:(id)sender {
-    [Intercom setMessagesHidden:YES];
+    [Intercom setInAppMessagesVisible:NO];
 }
 - (IBAction)interfaceShowPressed:(id)sender {
-    [Intercom setMessagesHidden:NO];
+    [Intercom setInAppMessagesVisible:YES];
 }
 
-- (IBAction)positionTopLeftPressed:(id)sender {
-    [Intercom setPreviewPosition:ICMPreviewPositionTopLeft];
+- (IBAction)showLauncher:(id)sender {
+    [Intercom setLauncherVisible:YES];
 }
-- (IBAction)positionTopRightPressed:(id)sender {
-    [Intercom setPreviewPosition:ICMPreviewPositionTopRight];
+- (IBAction)hideLauncher:(id)sender {
+    [Intercom setLauncherVisible:NO];
 }
-- (IBAction)positionBottomLeftPressed:(id)sender {
-    [Intercom setPreviewPosition:ICMPreviewPositionBottomLeft];
+- (IBAction)showMesseger:(id)sender {
+    [Intercom presentMessenger];
 }
-- (IBAction)positionBottomRightPressed:(id)sender {
-    [Intercom setPreviewPosition:ICMPreviewPositionBottomRight];
+- (IBAction)hideMessenger:(id)sender {
+    [self performSelector:@selector(hideAfter5Seconds) withObject:self afterDelay:5.0 ];
+}
+- (void)hideAfter5Seconds {
+    [Intercom hideMessenger];
 }
 
 
