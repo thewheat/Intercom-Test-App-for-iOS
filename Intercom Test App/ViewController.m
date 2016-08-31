@@ -106,8 +106,8 @@ void intercomCheckSecureMode(NSString* data);
     } else {
         matches = objects[0];
         NSLog(@"Loading saved settings for %@", [matches valueForKey:@"app_id"]);
-        self.settings_sdk_api_key = [matches valueForKey:@"app_id"];
-        self.settings_app_id = [matches valueForKey:@"sdk_api_key"];
+        self.settings_sdk_api_key = [matches valueForKey:@"sdk_api_key"];
+        self.settings_app_id = [matches valueForKey:@"app_id"];
         self.settings_secret_key = [matches valueForKey:@"secret_key"];
     }
 }
