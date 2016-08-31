@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08C40D661D05A9B200C01E60 /* Intercom Test App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Intercom Test App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		08C40D661D05A9B200C01E60 /* Intercom 2.x.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Intercom 2.x.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08C40D6A1D05A9B200C01E60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08C40D6C1D05A9B200C01E60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08C40D6D1D05A9B200C01E60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		08C40D671D05A9B200C01E60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				08C40D661D05A9B200C01E60 /* Intercom Test App.app */,
+				08C40D661D05A9B200C01E60 /* Intercom 2.x.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,9 +109,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		08C40D651D05A9B200C01E60 /* Intercom Test App */ = {
+		08C40D651D05A9B200C01E60 /* Intercom 2.x */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 08C40D801D05A9B300C01E60 /* Build configuration list for PBXNativeTarget "Intercom Test App" */;
+			buildConfigurationList = 08C40D801D05A9B300C01E60 /* Build configuration list for PBXNativeTarget "Intercom 2.x" */;
 			buildPhases = (
 				34A22677C3C7F721FC9E4ABC /* [CP] Check Pods Manifest.lock */,
 				08C40D621D05A9B200C01E60 /* Sources */,
@@ -124,9 +124,9 @@
 			);
 			dependencies = (
 			);
-			name = "Intercom Test App";
+			name = "Intercom 2.x";
 			productName = "Intercom Test App";
-			productReference = 08C40D661D05A9B200C01E60 /* Intercom Test App.app */;
+			productReference = 08C40D661D05A9B200C01E60 /* Intercom 2.x.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -143,7 +143,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 08C40D611D05A9B200C01E60 /* Build configuration list for PBXProject "Intercom Test App" */;
+			buildConfigurationList = 08C40D611D05A9B200C01E60 /* Build configuration list for PBXProject "Intercom 2.x" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -156,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				08C40D651D05A9B200C01E60 /* Intercom Test App */,
+				08C40D651D05A9B200C01E60 /* Intercom 2.x */,
 			);
 		};
 /* End PBXProject section */
@@ -346,8 +346,8 @@
 				INFOPLIST_FILE = "Intercom Test App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.thewheatfield.ios.intercomtestapp.Intercom-Test-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.thewheatfield.ios.intercomtestapp.Intercom-Test-App.2x";
+				PRODUCT_NAME = "Intercom 2.x";
 			};
 			name = Debug;
 		};
@@ -359,15 +359,15 @@
 				INFOPLIST_FILE = "Intercom Test App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.thewheatfield.ios.intercomtestapp.Intercom-Test-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.thewheatfield.ios.intercomtestapp.Intercom-Test-App.2x";
+				PRODUCT_NAME = "Intercom 2.x";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		08C40D611D05A9B200C01E60 /* Build configuration list for PBXProject "Intercom Test App" */ = {
+		08C40D611D05A9B200C01E60 /* Build configuration list for PBXProject "Intercom 2.x" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08C40D7E1D05A9B300C01E60 /* Debug */,
@@ -376,7 +376,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		08C40D801D05A9B300C01E60 /* Build configuration list for PBXNativeTarget "Intercom Test App" */ = {
+		08C40D801D05A9B300C01E60 /* Build configuration list for PBXNativeTarget "Intercom 2.x" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08C40D811D05A9B300C01E60 /* Debug */,
