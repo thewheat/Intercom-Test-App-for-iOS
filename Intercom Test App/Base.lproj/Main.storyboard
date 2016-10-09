@@ -437,12 +437,24 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sqx-Z9-JFR">
+                                                <state key="normal" title="Show Unread Count"/>
+                                                <connections>
+                                                    <action selector="unreadCountShow:" destination="jzM-xI-d3T" eventType="touchUpInside" id="1Rz-pA-wFJ"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="UWZ-HH-Vgf" userLabel="Show Unread Count Stackview">
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU1-CK-ByA">
-                                                        <state key="normal" title="Show Unread Count"/>
+                                                        <state key="normal" title="Enable Observer"/>
                                                         <connections>
                                                             <action selector="unreadCountEnable:" destination="jzM-xI-d3T" eventType="touchUpInside" id="QOC-8p-Jti"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UG8-YV-Gal">
+                                                        <state key="normal" title="Disable Observer"/>
+                                                        <connections>
+                                                            <action selector="unreadCountDisable:" destination="jzM-xI-d3T" eventType="touchUpInside" id="B5n-1z-XuC"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -489,10 +501,10 @@
                                             <constraint firstItem="lic-2f-WlD" firstAttribute="top" secondItem="rb4-U3-Ned" secondAttribute="top" constant="30" id="dKo-cc-FYM"/>
                                             <constraint firstItem="xot-Mc-cDP" firstAttribute="leading" secondItem="iov-4s-U4k" secondAttribute="leading" id="g48-YZ-UO8"/>
                                             <constraint firstItem="pRL-Ng-Q8M" firstAttribute="top" secondItem="3Ed-0L-RgL" secondAttribute="top" constant="8" id="gAk-lx-3jX"/>
+                                            <constraint firstItem="Sqx-Z9-JFR" firstAttribute="top" secondItem="Av1-iH-Jyf" secondAttribute="bottom" constant="10" id="gNh-bF-7qv"/>
                                             <constraint firstItem="VIp-gw-TbR" firstAttribute="centerX" secondItem="3Ed-0L-RgL" secondAttribute="centerX" id="gOp-eH-M2k"/>
                                             <constraint firstItem="Vsw-IX-xer" firstAttribute="top" secondItem="xot-Mc-cDP" secondAttribute="bottom" constant="8" id="gys-Xu-U88"/>
                                             <constraint firstItem="iov-4s-U4k" firstAttribute="top" secondItem="88c-oc-nkB" secondAttribute="top" constant="38" id="iSb-b8-XfL"/>
-                                            <constraint firstItem="UWZ-HH-Vgf" firstAttribute="top" secondItem="Av1-iH-Jyf" secondAttribute="top" constant="30" id="lT4-w8-gQd"/>
                                             <constraint firstItem="VIp-gw-TbR" firstAttribute="width" secondItem="3Ed-0L-RgL" secondAttribute="width" id="mRg-uE-xF3"/>
                                             <constraint firstItem="88c-oc-nkB" firstAttribute="trailing" secondItem="3Ed-0L-RgL" secondAttribute="trailing" id="ngn-ym-SUE"/>
                                             <constraint firstItem="H2W-h2-bBv" firstAttribute="top" secondItem="3rG-Xz-fMf" secondAttribute="bottom" constant="5" id="nz8-T1-daF"/>
@@ -501,6 +513,8 @@
                                             <constraint firstItem="3rG-Xz-fMf" firstAttribute="trailing" secondItem="xot-Mc-cDP" secondAttribute="trailing" id="tgW-d8-kuz"/>
                                             <constraint firstItem="88c-oc-nkB" firstAttribute="centerX" secondItem="3Ed-0L-RgL" secondAttribute="centerX" id="v7t-Yh-eao"/>
                                             <constraint firstItem="Nj9-U8-Vqn" firstAttribute="width" secondItem="3Ed-0L-RgL" secondAttribute="width" id="vFg-xC-9hN"/>
+                                            <constraint firstItem="Sqx-Z9-JFR" firstAttribute="centerX" secondItem="3Ed-0L-RgL" secondAttribute="centerX" id="x30-PY-3ZZ"/>
+                                            <constraint firstItem="UWZ-HH-Vgf" firstAttribute="top" secondItem="Sqx-Z9-JFR" secondAttribute="bottom" constant="10" id="xJf-ZK-GGn"/>
                                             <constraint firstItem="3rG-Xz-fMf" firstAttribute="leading" secondItem="pRL-Ng-Q8M" secondAttribute="leading" id="yJA-L4-qui"/>
                                             <constraint firstAttribute="trailing" secondItem="Nj9-U8-Vqn" secondAttribute="trailing" id="yp6-9u-yqY"/>
                                         </constraints>

@@ -12,7 +12,7 @@ void intercomCheckSecureMode(NSString* data);
 @property (nonatomic, weak) IBOutlet UIButton *loginUnidentifiedButton;
 @property (nonatomic, weak) IBOutlet UIButton *sendMessageButton;
 @property (nonatomic, weak) IBOutlet UIButton *showConversationsButton;
-@property (nonatomic, assign) BOOL loggedIn;
+@property (nonatomic, assign) BOOL enableUnread;
 
 @property (nonatomic, weak) IBOutlet UITextField *userid;
 @property (nonatomic, weak) IBOutlet UITextField *email;
@@ -61,6 +61,7 @@ void intercomCheckSecureMode(NSString* data);
         }
     }
     [self registerForKeyboardNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUnreadCount:) name:IntercomUnreadConversationCountDidChangeNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -235,18 +236,37 @@ void intercomCheckSecureMode(NSString* data);
     [Intercom hideMessenger];
 }
 
-- (IBAction)unreadCountEnable:(id)sender {
-    NSLog(@"Show unread count enable");
-
+- (IBAction)unreadCountShow:(id)sender {
     NSUInteger count = [Intercom unreadConversationCount];
+    NSLog(@"Show unread count %tu", count);
     NSString *message = [NSString stringWithFormat:@"Unread count %tu", count];
-    NSLog(@"%@", message);
-
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:YES completion:nil];
-
 }
+- (IBAction)unreadCountEnable:(id)sender {
+    NSLog(@"Show unread count enable");
+    self.enableUnread = true;
+}
+
+- (IBAction)unreadCountDisable:(id)sender {
+    NSLog(@"Show unread count disable");
+    self.enableUnread = false;
+}
+
+- (void)updateUnreadCount:(id)sender {
+    NSUInteger count = [Intercom unreadConversationCount];
+    NSString *message = [NSString stringWithFormat:@"Unread count %tu", count];
+    NSLog(@"Observer unread count %tu", count);
+    if (self.enableUnread){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+
+
 
 NSData *hmacForKeyAndData(NSString *key, NSString *data)
 {
