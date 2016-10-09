@@ -235,6 +235,18 @@ void intercomCheckSecureMode(NSString* data);
     [Intercom hideMessenger];
 }
 
+- (IBAction)unreadCountEnable:(id)sender {
+    NSLog(@"Show unread count enable");
+
+    NSUInteger count = [Intercom unreadConversationCount];
+    NSString *message = [NSString stringWithFormat:@"Unread count %tu", count];
+    NSLog(@"%@", message);
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+}
 
 NSData *hmacForKeyAndData(NSString *key, NSString *data)
 {
