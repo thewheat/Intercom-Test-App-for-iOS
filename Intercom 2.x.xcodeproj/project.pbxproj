@@ -15,7 +15,6 @@
 		08C40D791D05A9B300C01E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C40D781D05A9B300C01E60 /* Assets.xcassets */; };
 		08C40D7C1D05A9B300C01E60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08C40D7A1D05A9B300C01E60 /* LaunchScreen.storyboard */; };
 		6395C4007FFC80176C5459D2 /* libPods-Intercom 2.x.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0603A04868E56607DE5C829 /* libPods-Intercom 2.x.a */; };
-		753A7167D0654EFFBAF825C3 /* libPods-Intercom Test App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F33644682009E50A9589F05 /* libPods-Intercom Test App.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				753A7167D0654EFFBAF825C3 /* libPods-Intercom Test App.a in Frameworks */,
 				6395C4007FFC80176C5459D2 /* libPods-Intercom 2.x.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +193,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		555942284824183A1B7F7338 /* [CP] Embed Pods Frameworks */ = {
@@ -352,7 +350,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Intercom Test App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.thewheatfield.ios.intercomtestapp.Intercom-Test-App.2x";
 				PRODUCT_NAME = "Intercom 2.x";
@@ -365,7 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Intercom Test App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.thewheatfield.ios.intercomtestapp.Intercom-Test-App.2x";
 				PRODUCT_NAME = "Intercom 2.x";
