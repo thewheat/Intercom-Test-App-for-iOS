@@ -45,5 +45,16 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library Access Warning</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>org.thewheatfield.ios</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>test0</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

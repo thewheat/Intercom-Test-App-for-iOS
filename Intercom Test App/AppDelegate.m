@@ -50,6 +50,21 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+
+    NSLog(@"openURL %@, schema: %@,  host: %@, path: %@, relativePath: %@, absoluteURL: %@", url, url.scheme, url.host, url.path, url.relativePath, url.absoluteURL);
+
+    [self.window.rootViewController performSegueWithIdentifier:@"deepLink" sender:self];
+
+    // process deep link if needed
+    // if ([url.scheme isEqualToString:@"test0"]) {
+    //     if ([url.host isEqualToString:@""]) {
+    //     }
+    //     if ([url.relativePath isEqualToString:@""]) {
+    //     }
+    // }
+    return YES;
+}
 
 #pragma mark - Core Data stack
 

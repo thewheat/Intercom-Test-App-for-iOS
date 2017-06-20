@@ -150,6 +150,12 @@ void intercomCheckSecureMode(NSString* data);
     [context save:&error];
 }
 // TODO: refactor settings because I do not know how to properly iOS yet - 0
+- (IBAction)deepLinkDone:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"unwindToMain" sender:self];
+}
+- (IBAction) unwindToMain:(UIStoryboardSegue *) sender{
+}
+
 
 - (IBAction)logoutPressed:(id)sender {
     NSLog(@"Logout");
