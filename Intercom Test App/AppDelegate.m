@@ -49,6 +49,8 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [Intercom setDeviceToken:deviceToken];
+    NSLog(@"deviceToken %@", deviceToken);
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

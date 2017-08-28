@@ -81,7 +81,7 @@ void intercomCheckSecureMode(NSString* data);
     NSString *secret = self.settings_secret_key; //settings.getValue(Settings.SDK_SECURE_MODE_SECRET_KEY);
     NSLog(@"Check secure mode. Data: %@ / Set Secure mode?: %@ %@",  data, (secret.length > 0 ? @"Yes":@"No"), hexadecimalString(hmacForKeyAndData(secret, data)));
     if(secret.length > 0 ) {
-        [Intercom setHMAC:hexadecimalString(hmacForKeyAndData(secret, data)) data:data];
+        [Intercom setUserHash:hexadecimalString(hmacForKeyAndData(secret, data))];
     }
 }
 // TODO: refactor settings because I do not know how to properly iOS yet - 1
@@ -181,8 +181,11 @@ void intercomCheckSecureMode(NSString* data);
 
 
 - (void)updateNameIfNecessary {
-    if(self.name.text.length > 0)
-        [Intercom updateUserWithAttributes:@{@"name" : self.name.text}];
+    if(self.name.text.length > 0){
+        ICMUserAttributes *userAttributes = [ICMUserAttributes new];
+        userAttributes.name = self.name.text;
+        [Intercom updateUser:userAttributes];
+    }
 }
 
 - (IBAction)loginUnidentified:(id)sender {
@@ -192,11 +195,51 @@ void intercomCheckSecureMode(NSString* data);
 }
 - (IBAction)updateCustomAttributePressed:(id)sender {
     NSLog(@"Update Custom Attribute. Name: %@ / Value: %@", self.custom_attribute_name.text, self.custom_attribute_value.text);
+
+    ICMUserAttributes *userAttributes = [ICMUserAttributes new];
     if(self.custom_attribute.isOn){
-        [Intercom updateUserWithAttributes:@{@"custom_attributes": @{self.custom_attribute_name.text : self.custom_attribute_value.text}}];
+        userAttributes.customAttributes = @{self.custom_attribute_name.text : self.custom_attribute_value.text};
+        [Intercom updateUser:userAttributes];
     }
     else{
-        [Intercom updateUserWithAttributes:@{self.custom_attribute_name.text : self.custom_attribute_value.text}];
+        Boolean found = false;
+        if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"name"]){
+            found = true;
+            userAttributes.name = self.custom_attribute_value.text;
+        }
+        else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"phone"]){
+            found = true;
+            userAttributes.phone = self.custom_attribute_value.text;
+        }
+        else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"email"]){
+            found = true;
+            userAttributes.email = self.custom_attribute_value.text;
+        }
+        else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"languageoverride"]
+                 || [self.custom_attribute_name.text.lowercaseString isEqualToString:@"language_override"]){
+            found = true;
+            userAttributes.languageOverride = self.custom_attribute_value.text;
+        }
+        else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"created_at"]
+                 || [self.custom_attribute_name.text.lowercaseString isEqualToString:@"remote_created_at"]
+                 || [self.custom_attribute_name.text.lowercaseString isEqualToString:@"signed_up_at"] ){
+            found = true;
+            NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.custom_attribute_value.text.intValue];
+            userAttributes.signedUpAt = date;
+        }
+        else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"unsubscribed_from_emails"]){
+            found = true;
+            userAttributes.unsubscribedFromEmails = false;
+        }
+        if (found){
+            [Intercom updateUser:userAttributes];
+        }
+        else{
+            NSString *message = [NSString stringWithFormat:@"Unrecognized standard attribute"];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
     }
 }
 - (IBAction)submitEventPressed:(id)sender {
