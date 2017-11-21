@@ -229,7 +229,7 @@ void intercomCheckSecureMode(NSString* data);
         }
         else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"unsubscribed_from_emails"]){
             found = true;
-            userAttributes.unsubscribedFromEmails = false;
+            userAttributes.unsubscribedFromEmails = [self.custom_attribute_value.text.lowercaseString isEqualToString:@"true"];
         }
         if (found){
             [Intercom updateUser:userAttributes];
