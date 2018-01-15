@@ -12,6 +12,7 @@ void intercomCheckSecureMode(NSString* data);
 @property (nonatomic, weak) IBOutlet UIButton *loginUnidentifiedButton;
 @property (nonatomic, weak) IBOutlet UIButton *sendMessageButton;
 @property (nonatomic, weak) IBOutlet UIButton *showConversationsButton;
+@property (nonatomic, weak) IBOutlet UIButton *setPadding;
 @property (nonatomic, assign) BOOL enableUnread;
 
 @property (nonatomic, weak) IBOutlet UITextField *userid;
@@ -21,6 +22,7 @@ void intercomCheckSecureMode(NSString* data);
 @property (nonatomic, weak) IBOutlet UITextField *activeField;
 @property (nonatomic, weak) IBOutlet UINavigationBar *navBar;
 
+@property (nonatomic, weak) IBOutlet UITextField *bottomPadding;
 
 @property (nonatomic, weak) IBOutlet UITextField *custom_attribute_name;
 @property (nonatomic, weak) IBOutlet UITextField *custom_attribute_value;
@@ -269,6 +271,10 @@ void intercomCheckSecureMode(NSString* data);
     [Intercom setInAppMessagesVisible:YES];
 }
 
+- (IBAction)setPadding:(id)sender {
+    float floatvalue = [self.bottomPadding.text floatValue];
+    [Intercom setBottomPadding:floatvalue];
+}
 - (IBAction)showLauncher:(id)sender {
     [Intercom setLauncherVisible:YES];
 }

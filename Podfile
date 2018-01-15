@@ -6,6 +6,6 @@ target 'Intercom Test App' do
   # use_frameworks!
 
   # Pods for Intercom Test App
-  pod 'Intercom', '3.2.12'
+  pod 'Intercom', '4.1.8'
 
 end

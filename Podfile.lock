@@ -1,12 +1,12 @@
 PODS:
-  - Intercom (3.2.12)
+  - Intercom (4.1.8)
 
 DEPENDENCIES:
-  - Intercom (= 3.2.12)
+  - Intercom (= 4.1.8)
 
 SPEC CHECKSUMS:
-  Intercom: 3119e8ebf76d3da425bab717a08067398fcabfe6
+  Intercom: 2d2f4ad2d24f7b7e2d5b2b0d74bb02bc0e0f756a
 
-PODFILE CHECKSUM: 0fb28431dce9913d20145a45529b2c77da81810d
+PODFILE CHECKSUM: d294fce85ad64664f6ecfb0ff03d3a160a19da37
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.1.1
