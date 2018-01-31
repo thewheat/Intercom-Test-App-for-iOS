@@ -175,6 +175,10 @@
         self.settings_sdk_api_key = [matches valueForKey:@"sdk_api_key"];
         self.settings_secret_key = [matches valueForKey:@"secret_key"];
     }
+
+    self.settings_app_id = @"qji82zks";
+    self.settings_sdk_api_key = @"ios_sdk-dda4f8c98e3ab872d2c9663a1af4be5886e93e35";
+    self.settings_secret_key = @"RUA5ubpVzPGCwbf6PhkjWvFD1iCshmRlleCFdSi6";
 }
 
 @end

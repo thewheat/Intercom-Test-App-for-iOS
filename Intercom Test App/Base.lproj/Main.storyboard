@@ -143,12 +143,22 @@
                                             <constraint firstItem="P8i-up-8mn" firstAttribute="leading" secondItem="gQs-Tm-4Vb" secondAttribute="leading" constant="8" id="yix-XF-ZAH"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHc-A4-Sbs">
+                                        <rect key="frame" x="146" y="312" width="82" height="30"/>
+                                        <state key="normal" title="Help Center"/>
+                                        <connections>
+                                            <action selector="logoutPressed:" destination="TK7-CW-nU0" eventType="touchUpInside" id="j35-iF-AeE"/>
+                                            <action selector="openHelpCenter:" destination="TK7-CW-nU0" eventType="touchUpInside" id="iBz-la-9Fn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="gQs-Tm-4Vb" firstAttribute="trailing" secondItem="7qg-8r-OF9" secondAttribute="trailing" id="EVF-3a-vOA"/>
+                                    <constraint firstItem="gHc-A4-Sbs" firstAttribute="centerX" secondItem="aoA-lN-uNf" secondAttribute="centerX" id="Odb-AW-wid"/>
                                     <constraint firstItem="gQs-Tm-4Vb" firstAttribute="leading" secondItem="7qg-8r-OF9" secondAttribute="leading" id="Qb0-Cg-YFH"/>
                                     <constraint firstItem="gQs-Tm-4Vb" firstAttribute="bottom" secondItem="7qg-8r-OF9" secondAttribute="bottom" id="YRZ-6f-sUM"/>
                                     <constraint firstItem="gQs-Tm-4Vb" firstAttribute="top" secondItem="7qg-8r-OF9" secondAttribute="top" id="d1o-Iu-4C4"/>
+                                    <constraint firstItem="gHc-A4-Sbs" firstAttribute="top" secondItem="dPQ-Yl-Qs5" secondAttribute="bottom" constant="10" id="j5h-oA-cww"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
