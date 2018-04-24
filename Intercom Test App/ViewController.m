@@ -63,7 +63,7 @@ void intercomCheckSecureMode(NSString* data);
         }
     }
     [self registerForKeyboardNotifications];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUnreadCount:) name:IntercomUnreadConversationCountDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUnreadCount:) name:IntercomUnreadConversationCountDidChangeNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,7 +83,7 @@ void intercomCheckSecureMode(NSString* data);
     NSString *secret = self.settings_secret_key; //settings.getValue(Settings.SDK_SECURE_MODE_SECRET_KEY);
     NSLog(@"Check secure mode. Data: %@ / Set Secure mode?: %@ %@",  data, (secret.length > 0 ? @"Yes":@"No"), hexadecimalString(hmacForKeyAndData(secret, data)));
     if(secret.length > 0 ) {
-//        [Intercom setUserHash:hexadecimalString(hmacForKeyAndData(secret, data))];
+        [Intercom setUserHash:hexadecimalString(hmacForKeyAndData(secret, data))];
     }
 }
 // TODO: refactor settings because I do not know how to properly iOS yet - 1
@@ -161,7 +161,7 @@ void intercomCheckSecureMode(NSString* data);
 
 - (IBAction)logoutPressed:(id)sender {
     NSLog(@"Logout");
-    [Intercom reset];
+    [Intercom logout];
 }
 - (IBAction)loginIdentifiedPressed:(id)sender {
     NSLog(@"Sign in as registered user. email: %@ / user_id: %@", self.email.text, self.userid.text);
@@ -198,43 +198,43 @@ void intercomCheckSecureMode(NSString* data);
 - (IBAction)updateCustomAttributePressed:(id)sender {
     NSLog(@"Update Custom Attribute. Name: %@ / Value: %@", self.custom_attribute_name.text, self.custom_attribute_value.text);
 
-//    ICMUserAttributes *userAttributes = [ICMUserAttributes new];
+    ICMUserAttributes *userAttributes = [ICMUserAttributes new];
     if(self.custom_attribute.isOn){
-//        userAttributes.customAttributes = @{self.custom_attribute_name.text : self.custom_attribute_value.text};
-//        [Intercom updateUser:userAttributes];
+        userAttributes.customAttributes = @{self.custom_attribute_name.text : self.custom_attribute_value.text};
+        [Intercom updateUser:userAttributes];
     }
     else{
         Boolean found = false;
         if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"name"]){
             found = true;
-//            userAttributes.name = self.custom_attribute_value.text;
+            userAttributes.name = self.custom_attribute_value.text;
         }
         else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"phone"]){
             found = true;
-//            userAttributes.phone = self.custom_attribute_value.text;
+            userAttributes.phone = self.custom_attribute_value.text;
         }
         else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"email"]){
             found = true;
-//            userAttributes.email = self.custom_attribute_value.text;
+            userAttributes.email = self.custom_attribute_value.text;
         }
         else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"languageoverride"]
                  || [self.custom_attribute_name.text.lowercaseString isEqualToString:@"language_override"]){
             found = true;
-//            userAttributes.languageOverride = self.custom_attribute_value.text;
+            userAttributes.languageOverride = self.custom_attribute_value.text;
         }
         else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"created_at"]
                  || [self.custom_attribute_name.text.lowercaseString isEqualToString:@"remote_created_at"]
                  || [self.custom_attribute_name.text.lowercaseString isEqualToString:@"signed_up_at"] ){
             found = true;
-//            NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.custom_attribute_value.text.intValue];
-//            userAttributes.signedUpAt = date;
+            NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.custom_attribute_value.text.intValue];
+            userAttributes.signedUpAt = date;
         }
         else if ([self.custom_attribute_name.text.lowercaseString isEqualToString:@"unsubscribed_from_emails"]){
             found = true;
-//            userAttributes.unsubscribedFromEmails = [self.custom_attribute_value.text.lowercaseString isEqualToString:@"true"];
+            userAttributes.unsubscribedFromEmails = [self.custom_attribute_value.text.lowercaseString isEqualToString:@"true"];
         }
         if (found){
-//            [Intercom updateUser:userAttributes];
+            [Intercom updateUser:userAttributes];
         }
         else{
             NSString *message = [NSString stringWithFormat:@"Unrecognized standard attribute"];
@@ -268,10 +268,10 @@ void intercomCheckSecureMode(NSString* data);
 
 
 - (IBAction)interfaceHidePressed:(id)sender {
-//    [Intercom setInAppMessagesVisible:NO];
+    [Intercom setInAppMessagesVisible:NO];
 }
 - (IBAction)interfaceShowPressed:(id)sender {
-//    [Intercom setInAppMessagesVisible:YES];
+    [Intercom setInAppMessagesVisible:YES];
 }
 
 - (IBAction)setPadding:(id)sender {
@@ -279,28 +279,28 @@ void intercomCheckSecureMode(NSString* data);
     [Intercom setBottomPadding:floatvalue];
 }
 - (IBAction)showLauncher:(id)sender {
-//    [Intercom setLauncherVisible:YES];
+    [Intercom setLauncherVisible:YES];
 }
 - (IBAction)hideLauncher:(id)sender {
-//    [Intercom setLauncherVisible:NO];
+    [Intercom setLauncherVisible:NO];
 }
 - (IBAction)showMesseger:(id)sender {
-//    [Intercom presentMessenger];
+    [Intercom presentMessenger];
 }
 - (IBAction)hideMessenger:(id)sender {
     [self performSelector:@selector(hideAfter5Seconds) withObject:self afterDelay:5.0 ];
 }
 - (void)hideAfter5Seconds {
-//    [Intercom hideMessenger];
+    [Intercom hideMessenger];
 }
 
 - (IBAction)unreadCountShow:(id)sender {
-//    NSUInteger count = [Intercom unreadConversationCount];
-//    NSLog(@"Show unread count %tu", count);
-//    NSString *message = [NSString stringWithFormat:@"Unread count %tu", count];
-//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
-//    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
-//    [self presentViewController:alertController animated:YES completion:nil];
+    NSUInteger count = [Intercom unreadConversationCount];
+    NSLog(@"Show unread count %tu", count);
+    NSString *message = [NSString stringWithFormat:@"Unread count %tu", count];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 - (IBAction)unreadCountEnable:(id)sender {
     NSLog(@"Show unread count enable");
@@ -313,14 +313,14 @@ void intercomCheckSecureMode(NSString* data);
 }
 
 - (void)updateUnreadCount:(id)sender {
-//    NSUInteger count = [Intercom unreadConversationCount];
-//    NSString *message = [NSString stringWithFormat:@"Unread count %tu", count];
-//    NSLog(@"Observer unread count %tu", count);
-//    if (self.enableUnread){
-//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
-//        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
-//        [self presentViewController:alertController animated:YES completion:nil];
-//    }
+    NSUInteger count = [Intercom unreadConversationCount];
+    NSString *message = [NSString stringWithFormat:@"Unread count %tu", count];
+    NSLog(@"Observer unread count %tu", count);
+    if (self.enableUnread){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 
