@@ -1,16 +1,16 @@
 PODS:
-  - Intercom (4.1.10)
+  - Intercom (5.3.0)
 
 DEPENDENCIES:
   - Intercom
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Intercom
 
 SPEC CHECKSUMS:
-  Intercom: b1bb93bb4c3ce037ddd519cc367771fdb6495ed1
+  Intercom: 0919be8f5027720557ce68c449d81275eaddb985
 
-PODFILE CHECKSUM: c329371883778d846def3680e211ee681b1c3fcc
+PODFILE CHECKSUM: 0ee29ee5c2f3e94c230a9b6bd4ecb722676a3526
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
