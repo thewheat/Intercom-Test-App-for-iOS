@@ -63,6 +63,7 @@ void intercomCheckSecureMode(NSString* data);
         }
     }
     [self registerForKeyboardNotifications];
+    [self registerAllNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUnreadCount:) name:IntercomUnreadConversationCountDidChangeNotification object:nil];
 }
 
@@ -291,6 +292,7 @@ void intercomCheckSecureMode(NSString* data);
     [self performSelector:@selector(hideAfter5Seconds) withObject:self afterDelay:5.0 ];
 }
 - (void)hideAfter5Seconds {
+    NSLog(@"Hide messenger");
     [Intercom hideMessenger];
 }
 
@@ -367,6 +369,22 @@ NSString *hexadecimalString(NSData *data){
     }
 }
 
+- (void)registerAllNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processNotification:) name:IntercomWindowWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processNotification:) name:IntercomWindowDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processNotification:) name:IntercomWindowWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processNotification:) name:IntercomWindowDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processNotification:) name:IntercomDidStartNewConversationNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processNotification:) name:IntercomHelpCenterWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processNotification:) name:IntercomHelpCenterDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processNotification:) name:IntercomHelpCenterWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(processNotification:) name:IntercomHelpCenterDidHideNotification object:nil];
+}
+
+- (void)processNotification:(NSNotification *) notification {
+    NSLog(@"Notification triggered: %@", notification.name);
+}
 
 
 // https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
